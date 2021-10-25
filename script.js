@@ -26,11 +26,15 @@ function setup(){
     textBox.position(160, boardSize+47)
     BoardCenterPos = createVector(boardSize/2, boardSize/2)
     
+    p.position(boardSize + 10, 20);
+    q.position(boardSize + 10, 40);
+
     approxPi = 0;
     hits = 0;
     oldDarts = []
     darts = 0
     frameRate(60)
+    draw();
 }
 
 function draw(){
@@ -56,23 +60,20 @@ function draw(){
     }
 
     if(Math.abs(dist(DartPos.x, DartPos.y, BoardCenterPos.x, BoardCenterPos.y)) <= boardSize/2){
-        console.log("Hit")
         hits++;
         document.getElementById("StatBox").textContent = `This Dart was a Hit!`;
     }
     else{
-        console.log("Miss")
         document.getElementById("StatBox").textContent = `This Dart was a Miss`;
     }
     darts++;
     approxPi = 4*(hits/darts)
-    console.log(`New Pi Approximation: ` + approxPi)    
+    console.log(frameRate())
     oldDarts.push(DartPos)
     document.getElementById("PiBox").textContent = `The new Pi Approximation is: ${approxPi}`;
     }
     if(darts >= iterations){
         noLoop()
-        console.log("DONE!")
     }
 }
 
@@ -123,12 +124,12 @@ function createControls(){
     
     controlsCreated = true
 
-    let p = createP('');
+    p = createP('');
     p.style('font-size', '16px');
     p.position(boardSize + 10, 20);  
     p.id('StatBox')
 
-    let q = createP('');
+    q = createP('');
     q.style('font-size', '16px');
     q.position(boardSize + 10, 40);  
     q.id('PiBox')
