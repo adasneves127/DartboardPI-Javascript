@@ -80,8 +80,9 @@ function draw(){
 function createControls(){
     boardSizeSlider = createSlider(10, 100, 50);
     boardSizeSlider.style('width', '80px');
-    boardSizeSlider.changed(() => {
+    boardSizeSlider.input(() => {
         noLoop();
+        iterations = -1
         boardSize = boardSizeSlider.value() * 10
         setup()
     })
