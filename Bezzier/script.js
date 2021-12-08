@@ -17,7 +17,7 @@ function setup(){
 //This function will be called once per frame. We can change how often this function is called by calling frameRate(fps).
 function draw(){
     background(128)
-    let mousePos = createVector(mouseX, mouseY)
+    let mousePos = createVector(map(mouseX, 0, width, 0, width, true), map(mouseY, 0, height, 0, height, true))
     let pointA = createVector(0, height/2)
     strokeWeight(5)
     stroke(255)
