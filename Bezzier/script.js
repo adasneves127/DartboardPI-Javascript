@@ -30,6 +30,15 @@ function draw(){
     point(mousePos)
 
     strokeWeight(10)
+
+    //let ax, ay, dx, dy;
+
+    bX = map(bX, 0, width, 0, width, true)
+    bY = map(bY, 0, height, 0, height, true)
+    cX = map(cX, 0, width, 0, width, true)
+    cY = map(cY, 0, height, 0, height, true)
+
+
     point(bX, bY)
     point(cX, cY)
     
